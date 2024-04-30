@@ -1,7 +1,6 @@
 import unittest
 from search import Search
 from datetime import datetime, timedelta, UTC
-from new_chat import get_new_chat
 from fastapi import HTTPException
 
 
@@ -10,12 +9,6 @@ class TestStringMethods(unittest.TestCase):
     channel_id = '1233269423113109524'
     
     search_db = Search(db_url)
-    
-    def test_init_search_db(self):
-        pass
-
-    def test_update_db(self):
-        get_new_chat(self.channel_id)
 
     def test_search_by_keyword(self):
         result = self.search_db.by_keyword("Test")
