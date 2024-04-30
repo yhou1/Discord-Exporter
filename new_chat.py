@@ -10,7 +10,7 @@ DISCORD_TOKEN = open("DISCORD_TOKEN", "r").read()
 DB_URL = 'postgresql+psycopg2://postgres:Giftedcheese132@localhost/DiscordMessages'
 
 
-def get_new_chat(channel_id):
+def update_database(channel_id):
         """
         Function that will export all messages sent within the last 7 days of a specific server to the database
         
@@ -20,7 +20,7 @@ def get_new_chat(channel_id):
         command = "dotnet ./DiscordChatExporter.Cli/DiscordChatExporter.Cli.dll export --channel " + channel_id + " --token " + DISCORD_TOKEN + " --format Json"
         exit_code = os.system(command)
         if exit_code != 0:
-            return False 
+            return False
         
         # Searches through all JSON files with the correct channel ID within the directory using regex
         pattern = r".*\[" + channel_id + r"\]\.json$"  # Match all files ending with ".json"

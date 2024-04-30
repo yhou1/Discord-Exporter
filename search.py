@@ -8,7 +8,7 @@ DISCORD_TOKEN = open("DISCORD_TOKEN", "r").read()
 
 class Search:
 
-    def __init__(self, db_url: str) -> None:
+    def __init__(self, db_url):
         """
         Constructor for the Search class
 
@@ -22,7 +22,7 @@ class Search:
                                 metadata,
                                 autoload_with=conn)
     
-    def by_keyword(self, search_term: str): 
+    def by_keyword(self, search_term):
         """
         Function to search through exported messages for match with keyword
 
@@ -84,7 +84,7 @@ class Search:
 
       
 
-def convert_to_datetime(time: str):
+def convert_to_datetime(time):
     """
     Function to convert normal string date time to a datetime object 
 
